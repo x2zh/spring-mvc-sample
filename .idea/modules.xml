@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-mvc-sample.iml" filepath="$PROJECT_DIR$/spring-mvc-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mvc-sample_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mvc-sample_main.iml" group="spring-mvc-sample" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-mvc-sample_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-mvc-sample_test.iml" group="spring-mvc-sample" />
     </modules>
   </component>
 </project>

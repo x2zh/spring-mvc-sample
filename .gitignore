@@ -5,5 +5,5 @@
 build
 
 # Ignore IDEA
-.gradle
+.idea
 *.iml
