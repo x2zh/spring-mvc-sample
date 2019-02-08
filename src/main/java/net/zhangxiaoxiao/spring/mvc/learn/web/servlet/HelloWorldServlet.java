@@ -25,7 +25,8 @@ public class HelloWorldServlet extends HttpServlet {
         WebApplicationContext webApplicationContext = RequestContextUtils.findWebApplicationContext(req);
         if (webApplicationContext != null) {
             CityMapper mapper = webApplicationContext.getBean(CityMapper.class);
-            log.info("bean names: {}", Arrays.toString(webApplicationContext.getBeanDefinitionNames()));
+            String[] names = webApplicationContext.getBeanDefinitionNames();
+            log.info("bean counts: {} bean names: {}", names.length, Arrays.toString(names));
             resp.getWriter().write(mapper.getCity(1).toString());
             webApplicationContext.getServletContext();
             log.info("application context 的 id 为: {}", webApplicationContext.getId());
