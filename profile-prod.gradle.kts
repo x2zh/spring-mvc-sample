@@ -1,0 +1,1 @@
+val message: String by extra("prod 1 2 3")
