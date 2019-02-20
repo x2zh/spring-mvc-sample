@@ -39,6 +39,7 @@ repositories {
 }
 
 dependencies {
+    compile("com.lmax:disruptor:3.4.2")
     compile("org.mybatis", "mybatis", "3.5.0")
     compile("org.springframework", "spring-webmvc", "5.1.3.RELEASE")
     compile("org.springframework", "spring-jdbc", "5.1.4.RELEASE")
