@@ -32,7 +32,7 @@ dependencies {
     compile("com.lmax:disruptor:3.4.2")
     compile("org.mybatis", "mybatis", "3.5.0")
     compile("org.springframework", "spring-webmvc", "5.1.3.RELEASE")
-    compile("org.springframework", "spring-jdbc", "5.1.4.RELEASE")
+    compile("org.springframework", "spring-jdbc", "5.1.3.RELEASE")
     compile("mysql", "mysql-connector-java", "8.0.14")
     compile("org.slf4j", "slf4j-api", "1.7.25")
     compile("org.mybatis.generator", "mybatis-generator-core", "1.3.7")
