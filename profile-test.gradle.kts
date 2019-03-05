@@ -1,1 +1,0 @@
-val message: String by extra("test 1 2 3")

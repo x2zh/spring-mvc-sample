@@ -1,38 +1,7 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-
-val buildProfile: String? by project
-
-apply(from = "profile-${buildProfile ?: "dev"}.gradle.kts")
-
 
 plugins {
     war
 }
-
-
-tasks {
-    register("greeting") {
-        val message: String by project.extra
-        doLast {
-            println(message)
-            println(buildDir)
-        }
-    }
-
-
-    processResources {
-        filesMatching("application.properties") {
-            filteringCharset = "UTF-8"
-            filter(ReplaceTokens::class,
-                    "tokens" to mapOf(
-                            "username" to "zhangxiaoxiao",
-                            "password" to "123456"
-                    )
-            )
-        }
-    }
-}
-
 
 repositories {
     mavenCentral()
