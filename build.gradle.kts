@@ -7,6 +7,19 @@ repositories {
     mavenCentral()
 }
 
+tasks {
+    compileJava {
+        // 解决汉字编码问题
+        options.encoding = "UTF-8"
+    }
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
+    }
+}
+
 dependencies {
     /*dubbo依赖*/
 
@@ -43,4 +56,6 @@ dependencies {
     compile("javax.inject:javax.inject:1")
     runtimeOnly("org.apache.logging.log4j", "log4j-slf4j-impl", "2.11.1")
     compileOnly("javax.servlet", "javax.servlet-api", "4.0.1")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.4.0")
 }
