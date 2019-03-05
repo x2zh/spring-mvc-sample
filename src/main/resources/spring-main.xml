@@ -2,10 +2,22 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
             http://www.springframework.org/schema/context
-            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+            http://dubbo.apache.org/schema/dubbo
+            http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="demo-provider"/>
+
+    <dubbo:registry address="zookeeper://39.107.73.144:2181"/>
+
+    <dubbo:protocol name="dubbo" port="20890"/>
+    <bean id="dubboDemoService" class="net.zhangxiaoxiao.spring.mvc.learn.serviceimp.DubboDemoServiceImpl"/>
+    <dubbo:service interface="net.zhangxiaoxiao.spring.mvc.learn.service.DubboDemoService"
+                   ref="dubboDemoService"/>
 
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
