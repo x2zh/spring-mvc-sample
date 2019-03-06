@@ -7,7 +7,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +20,9 @@ public class HelloWorldServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(HelloWorldServlet.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        WebApplicationContext webApplicationContext = RequestContextUtils.findWebApplicationContext(req);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        WebApplicationContext webApplicationContext =
+                RequestContextUtils.findWebApplicationContext(req);
         if (webApplicationContext != null) {
             CityMapper mapper = webApplicationContext.getBean(CityMapper.class);
             String[] names = webApplicationContext.getBeanDefinitionNames();

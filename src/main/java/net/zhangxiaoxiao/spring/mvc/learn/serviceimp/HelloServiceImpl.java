@@ -6,7 +6,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
- * @author zhangxiaoxiao005
+ * 测试Java RMI 测试代码.
+ *
+ * @author zhangxiaoxiao
  */
 public class HelloServiceImpl extends UnicastRemoteObject implements HelloService {
 
@@ -14,7 +16,7 @@ public class HelloServiceImpl extends UnicastRemoteObject implements HelloServic
     }
 
     @Override
-    public String hello() throws RemoteException {
+    public String hello() {
         return "zhangxiaoxiao";
     }
 }

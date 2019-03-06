@@ -2,6 +2,7 @@
 plugins {
     war
     jacoco
+    checkstyle
 }
 
 repositories {
@@ -25,6 +26,10 @@ tasks {
             xml.isEnabled = true
             html.isEnabled = false
         }
+    }
+    
+    checkstyle {
+        configFile = File("google_checks.xml")
     }
 }
 

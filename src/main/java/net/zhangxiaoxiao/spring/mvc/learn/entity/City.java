@@ -2,6 +2,7 @@ package net.zhangxiaoxiao.spring.mvc.learn.entity;
 
 
 public class City {
+
     private Integer id;
 
     private String name;

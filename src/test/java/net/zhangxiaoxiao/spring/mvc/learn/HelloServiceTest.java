@@ -10,7 +10,9 @@ import java.rmi.RemoteException;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class HelloServiceTest { @Test
+public class HelloServiceTest {
+
+    @Test
     public void helloTest() throws RemoteException {
         HelloService helloService = new HelloServiceImpl();
         assertEquals(helloService.hello(), "zhangxiaoxiao");
