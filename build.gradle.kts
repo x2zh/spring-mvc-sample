@@ -1,6 +1,7 @@
 
 plugins {
     war
+    jacoco
 }
 
 repositories {
@@ -16,6 +17,13 @@ tasks {
         useJUnitPlatform()
         testLogging {
             events("passed", "skipped", "failed")
+        }
+    }
+    
+    jacocoTestReport {
+        reports {
+            xml.isEnabled = true
+            html.isEnabled = false
         }
     }
 }
