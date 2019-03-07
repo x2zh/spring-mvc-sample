@@ -21,6 +21,10 @@ tasks {
         }
     }
     
+    check {
+        dependsOn(jacocoTestReport)
+    }
+    
     jacocoTestReport {
         reports {
             xml.isEnabled = true
