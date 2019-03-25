@@ -30,19 +30,7 @@
     <!--transactional 注解可以在接口、类、方法中使用，但是最佳实践是在具体类和具体类的方法上使用-->
     <tx:annotation-driven transaction-manager="txManager"/>
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations">
-            <array>
-                <value>classpath:mybatis/mapper/*.xml</value>
-            </array>
-        </property>
-    </bean>
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="net.zhangxiaoxiao.spring.mvc.learn.dao"/>
-    </bean>
 
 
     <!--使用spring xml来创建一个嵌入式数据库 采用java代码配置时使用EmbeddedDatabaseBuilder创建-->
