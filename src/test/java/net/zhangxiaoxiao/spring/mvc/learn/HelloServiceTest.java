@@ -2,7 +2,7 @@ package net.zhangxiaoxiao.spring.mvc.learn;
 
 
 import net.zhangxiaoxiao.spring.mvc.learn.service.HelloService;
-import net.zhangxiaoxiao.spring.mvc.learn.serviceimp.HelloServiceImpl;
+import net.zhangxiaoxiao.spring.mvc.learn.serviceimpl.HelloServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import java.rmi.RemoteException;

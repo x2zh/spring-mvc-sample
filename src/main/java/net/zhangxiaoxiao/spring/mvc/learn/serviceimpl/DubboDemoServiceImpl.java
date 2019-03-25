@@ -1,4 +1,4 @@
-package net.zhangxiaoxiao.spring.mvc.learn.serviceimp;
+package net.zhangxiaoxiao.spring.mvc.learn.serviceimpl;
 
 import net.zhangxiaoxiao.spring.mvc.learn.service.DubboDemoService;
 import org.slf4j.Logger;

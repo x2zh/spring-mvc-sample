@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/cache
+            http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- DriverManagerDataSource 只应该在测试环境中使用，因为没有提供pooling的功能并且在发出多个连接请求时性能很差 -->
+    <!-- 高性能的DataSource实现：DBCP, C3P0, Druid -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT%2B8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <!--定义一个PlatformTransactionManager实现-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--transactional 注解可以在接口、类、方法中使用，但是最佳实践是在具体类和具体类的方法上使用-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mybatis/mapper/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="net.zhangxiaoxiao.spring.mvc.learn.dao"/>
+    </bean>
+
+
+    <!--使用spring xml来创建一个嵌入式数据库 采用java代码配置时使用EmbeddedDatabaseBuilder创建-->
+    <!--generate-name设置为true是最佳实践：防止测试套件重复生成时报错-->
+<!--    <jdbc:embedded-database id="embedded-dataSource" generate-name="true">
+        <jdbc:script location="classpath:schema.sql"/>
+        <jdbc:script location="classpath:test-data.sql"/>
+    </jdbc:embedded-database>-->
+
+    <!--使用spring xml来初始化数据库-->
+<!--    <jdbc:initialize-database data-source="embedded-dataSource">
+        <jdbc:script location="classpath:com/foo/sql/db-schema.sql"/>
+        <jdbc:script location="classpath:com/foo/sql/db-test-data.sql"/>
+    </jdbc:initialize-database>-->
+
+
+
+</beans>
