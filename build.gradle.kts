@@ -71,6 +71,8 @@ dependencies {
     compile("javax.validation", "validation-api", "2.0.1.Final")
     compile("org.hibernate.validator", "hibernate-validator", "6.0.14.Final")
     compile("javax.inject:javax.inject:1")
+    compile("org.springframework.security:spring-security-web:5.1.4.RELEASE")
+    compile("org.springframework.security:spring-security-config:5.1.4.RELEASE")
     runtimeOnly("org.apache.logging.log4j", "log4j-slf4j-impl", "2.11.1")
     compileOnly("javax.servlet", "javax.servlet-api", "4.0.1")
 
